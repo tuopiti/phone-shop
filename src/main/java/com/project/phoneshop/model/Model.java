@@ -20,7 +20,7 @@ public class Model {
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@GeneratedValue(generator = "model_seq_generator")
 	@SequenceGenerator(name = "model_seq_generator", initialValue = 1, sequenceName = "model_seq")
-	private Integer id;
+	private Long id;
 	
 	@Column(name = "model_name")
 	private String name;

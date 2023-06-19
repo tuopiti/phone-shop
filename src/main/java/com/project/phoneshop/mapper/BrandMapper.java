@@ -14,3 +14,19 @@ public interface BrandMapper {
 	
 	BrandDTO toDTO(Brand entity);
 }
+
+//public class BrandMapper {
+//
+// public static Brand toBrand(BrandDTO dto) { 
+//	 Brand brand = new Brand();
+//     brand.setName(dto.getName()); 
+//     return brand; 
+// }
+//  
+// public static BrandDTO toBrandDTO(Brand entity) { 
+//	 BrandDTO brandDTO = new
+//     BrandDTO(); brandDTO.setName(entity.getName());
+//     return brandDTO; 
+// }
+// 
+//}

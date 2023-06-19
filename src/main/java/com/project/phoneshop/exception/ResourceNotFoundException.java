@@ -11,8 +11,8 @@ import lombok.Setter;
 public class ResourceNotFoundException extends ApiException {
 	
 	private String resourceName;
-	private Integer resourceId;
-	public ResourceNotFoundException(String resourceName, Integer resourceId) {
+	private Long resourceId;
+	public ResourceNotFoundException(String resourceName, Long resourceId) {
 		super(HttpStatus.NOT_FOUND, String.format("%s not found for id=%d", resourceName, resourceId));
 	}
 }

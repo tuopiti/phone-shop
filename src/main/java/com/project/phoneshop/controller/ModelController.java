@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.phoneshop.dto.ModelDTO;
 import com.project.phoneshop.dto.PageDTO;
-import com.project.phoneshop.exception.ApiException;
-import com.project.phoneshop.mapper.ModelMapper;
+import com.project.phoneshop.mapper.ModelEntityMapper;
 import com.project.phoneshop.mapper.PageMapper;
 import com.project.phoneshop.model.Model;
 import com.project.phoneshop.service.ModelService;
@@ -27,18 +26,29 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/models")
 public class ModelController {
 	private final ModelService modelService;
-	
+	private final ModelEntityMapper modelMapper;
+	/*
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody ModelDTO dto) throws ApiException{
+	public ResponseEntity<?> create(@RequestBody ModelDTO dto){
 		Model model = modelService.save(dto);
 		ModelDTO modelDTO = ModelMapper.INSTANCE.toDTO(model);
 		return ResponseEntity.ok(modelDTO);
 	}
+	*/
+	
+	@PostMapping
+	public ResponseEntity<?> create(@RequestBody ModelDTO dto){
+		
+		Model model = modelMapper.toEntity(dto);
+		model = modelService.save(model);
+		ModelDTO modelDTO = ModelEntityMapper.INSTANCE.toDTO(model);
+		return ResponseEntity.ok(modelDTO);
+	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<?> getById(@PathVariable("id") int id) throws ApiException{
+	public ResponseEntity<?> getById(@PathVariable("id") Long id){
 		Model model = modelService.getById(id);
-		return ResponseEntity.ok(ModelMapper.INSTANCE.toDTO(model));
+		return ResponseEntity.ok(ModelEntityMapper.INSTANCE.toDTO(model));
 	}
 	
 	@GetMapping
@@ -46,7 +56,7 @@ public class ModelController {
 		Page<Model> page = modelService.getModels(params);
 		
 		PageDTO dto = PageMapper.INSTANCE.toDTO(page);
-		dto.setList(page.get().map(ModelMapper.INSTANCE::toDTO).toList());
+		dto.setList(page.get().map(ModelEntityMapper.INSTANCE::toDTO).toList());
 		return ResponseEntity.ok(dto);
 	}
 }

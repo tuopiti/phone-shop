@@ -9,11 +9,11 @@ import com.project.phoneshop.model.Brand;
 public interface BrandService {
 	Brand save(Brand entity);
 
-	Brand getById(Integer id);
+	Brand getById(Long id);
 
-	Brand update(Integer id, BrandDTO dto);
+	Brand update(Long id, BrandDTO dto);
 
-	void delete(Integer id);
+	void delete(Long id);
 
 	List<Brand> getBrands();
 }
