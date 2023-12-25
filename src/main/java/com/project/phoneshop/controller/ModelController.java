@@ -2,6 +2,8 @@ package com.project.phoneshop.controller;
 
 import java.util.Map;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +53,8 @@ public class ModelController {
 		return ResponseEntity.ok(ModelEntityMapper.INSTANCE.toDTO(model));
 	}
 	
+	//@PreAuthorize("hasRole('ROLE_SALE')")
+	@RolesAllowed("ROLE_SALE")
 	@GetMapping
 	public ResponseEntity<?> getModelList(@RequestParam Map<String, String> params){
 		Page<Model> page = modelService.getModels(params);
