@@ -1,8 +1,10 @@
 package com.project.phoneshop.service.impl;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,9 @@ import com.project.phoneshop.exception.ApiException;
 import com.project.phoneshop.model.Brand;
 import com.project.phoneshop.repository.BrandRepository;
 import com.project.phoneshop.service.BrandService;
+import com.project.phoneshop.spec.BrandFilter;
+import com.project.phoneshop.spec.BrandSpec;
+import com.project.phoneshop.utils.PageUtils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,13 +41,13 @@ public class BrandServiceImpl implements BrandService{
 				      //.orElseThrow(() -> new ResourceNotFoundException("Brand", id));
 					
 		
-//		Optional<Brand> brandOptional = brandRepository.findById(id);
-//
-//		if (brandOptional.isPresent()) {
-//			return brandOptional.get();
-//		} else {
-//			throw new HttpClientErrorException(HttpStatus.NOT_FOUND, String.format("brand not found for id=%d", id));
-//		}
+		//		Optional<Brand> brandOptional = brandRepository.findById(id);
+		//
+		//		if (brandOptional.isPresent()) {
+		//			return brandOptional.get();
+		//		} else {
+		//			throw new HttpClientErrorException(HttpStatus.NOT_FOUND, String.format("brand not found for id=%d", id));
+		//		}
 	}
 
 	@Override
@@ -64,16 +69,77 @@ public class BrandServiceImpl implements BrandService{
 
 	}
 
+	/*
 	@Override
 	public List<Brand> getBrands() {
-		/*System.out.println("============");
-		boolean existsByName = brandRepository.existsByName("Nokia");
-		System.out.println(existsByName);
-		System.out.println("============");
-		*/
+		//System.out.println("============");
+		//boolean existsByName = brandRepository.existsByName("Nokia");
+		//System.out.println(existsByName);
+		//System.out.println("============");
+		
 		//return brandRepository.findAll();
 		
 		return brandRepository.findByActiveTrue();
+	}
+
+    */
+	
+	/*
+	@Override
+	public List<Brand> getBrands(Map<String, String> params) {
+		BrandFilter brandFilter = new BrandFilter();
+		
+		if(params.containsKey("name")) {
+			String name = params.get("name");
+			brandFilter.setName(name);
+		}
+		
+		if(params.containsKey("id")) {
+			String id = params.get("id");
+			brandFilter.setId(Integer.parseInt(id));
+		}
+				
+		BrandSpec brandSpec = new BrandSpec(brandFilter);
+		
+		return brandRepository.findAll(brandSpec);
+		
+	}
+	
+	*/
+	
+	@Override
+	public Page<Brand> getBrands(Map<String, String> params) {
+		BrandFilter brandFilter = new BrandFilter();
+		
+		if(params.containsKey("name")) {
+			String name = params.get("name");
+			brandFilter.setName(name);
+		}
+		
+		if(params.containsKey("id")) {
+			String id = params.get("id");
+			brandFilter.setId(Integer.parseInt(id));
+		}
+		// @TODO add to a function for pageable
+		int pageLimit = PageUtils.PAGE_SIZE_DEAFAULT;
+		if(params.containsKey(PageUtils.PAGE_SIZE)) {
+			pageLimit = Integer.parseInt(params.get(PageUtils.PAGE_SIZE));
+		}
+		
+		int pageNumber = PageUtils.PAGE_NUMBER_DEFAULT;
+		if(params.containsKey(PageUtils.PAGE_NUMBER)) {
+			pageNumber = Integer.parseInt(params.get(PageUtils.PAGE_NUMBER));
+		}
+		
+		BrandSpec brandSpec = new BrandSpec(brandFilter);
+		
+		Pageable pageable = PageUtils.getPageable(pageNumber, pageLimit);
+		
+		//Pageable
+		//Page<Brand> findAll = brandRepository.findAll(brandSpec, org.springframework.data.domain.Pageable.ofSize(0));
+		
+		 Page<Brand> page = brandRepository.findAll(brandSpec, pageable);
+		return page;
 	}
 	
 }

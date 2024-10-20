@@ -1,9 +1,10 @@
 package com.project.phoneshop.controller;
 
-import java.util.List;
 //import java.util.stream.Collectors;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,15 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.phoneshop.dto.BrandDTO;
+import com.project.phoneshop.dto.PageDTO;
 import com.project.phoneshop.mapper.BrandMapper;
 import com.project.phoneshop.model.Brand;
 import com.project.phoneshop.service.BrandService;
 
 @RestController
-@RequestMapping("/brands")
+@RequestMapping("api/v1/brands")
 public class BrandController {
 	
 	@Autowired
@@ -53,6 +56,7 @@ public class BrandController {
 		return ResponseEntity.ok().build();
 	}
 	
+	/*
 	@PreAuthorize("hasAuthority('brand:read')")
 	@GetMapping
 	public ResponseEntity<?> list(){
@@ -63,5 +67,32 @@ public class BrandController {
 				//.collect(Collectors.toList());
 		
 		return ResponseEntity.ok(listBrand);
+	}
+	
+	*/
+	
+	/*
+	@PreAuthorize("hasAuthority('brand:read')")
+	@GetMapping
+	public ResponseEntity<?> getBrands(@RequestParam Map<String, String> params){
+		
+		List<BrandDTO> list = brandService.getBrands(params).stream()
+				.map(b -> BrandMapper.INSTANCE.toDTO(b))
+				.toList();
+		
+		return ResponseEntity.ok(list);
+		
+	}
+	
+	*/
+	
+	@PreAuthorize("hasAuthority('brand:read')")
+	@GetMapping
+	public ResponseEntity<?> getBrands(@RequestParam Map<String, String> params){
+		Page<Brand> page = brandService.getBrands(params);
+		
+		PageDTO pageDTO = new PageDTO(page);
+		return ResponseEntity.ok(pageDTO);
+			
 	}
 }

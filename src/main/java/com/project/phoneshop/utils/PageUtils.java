@@ -26,4 +26,16 @@ public interface PageUtils {
 			
 		return pageable;
 	}
+	
+	// second style
+	static Pageable getPageable(int pageNumber, int pageSize) {
+		if (pageNumber < PAGE_NUMBER_DEFAULT) {
+			pageNumber = PAGE_NUMBER_DEFAULT;
+		}
+		if (pageSize < 1) {
+			pageSize = PAGE_SIZE_DEAFAULT;
+		}
+		Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+		return pageable;
+	}
 }

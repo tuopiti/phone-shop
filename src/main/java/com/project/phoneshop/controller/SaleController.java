@@ -14,7 +14,7 @@ import com.project.phoneshop.service.SellService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/sells")
+@RequestMapping("api/v1/sells")
 @RequiredArgsConstructor
 public class SaleController {
 private final SellService sellService;

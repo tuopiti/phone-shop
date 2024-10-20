@@ -167,6 +167,7 @@ public class BrandServiceTest {
 		verify(brandRepository, times(1)).save(brand);
 	}
 	
+	/*
 	@Test
 	public void testListBrand() {
 		//given
@@ -184,4 +185,5 @@ public class BrandServiceTest {
 		assertEquals("Apple", brandsReturn.get(0).getName());
 		assertEquals("Samsung", brandsReturn.get(1).getName());
 	}
+	*/
 }

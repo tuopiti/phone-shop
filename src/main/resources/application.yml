@@ -5,7 +5,7 @@ application:
         secret-key: ${key:mykey123456789abcdmykey123456789abcdmykey123456789abcd}
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/phone1
+    url: jdbc:postgresql://localhost:5432/phoneshop
     username: phoneshop_piti
     password: piti123
   jpa: 
@@ -17,9 +17,20 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml   
+    
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+       
+  resources:
+    web:
+      resources:
+        static-locations:
+          classpath:
+            /META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   
 
  

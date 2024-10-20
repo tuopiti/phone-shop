@@ -1,0 +1,16 @@
+databaseChangeLog:
+- changeSet:
+    id: 010-insert-role-permissions
+    author: tuopiti36@gmail.com
+    changes:
+    - loadData:
+        file: db/data/010/users-roles.csv
+        tableName: users_roles
+        columns:
+        - column:           
+            name: user_id
+            type: NUMERIC
+        - column:
+            name: roles_id
+            type: NUMERIC
+        

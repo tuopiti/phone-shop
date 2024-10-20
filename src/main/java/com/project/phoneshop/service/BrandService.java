@@ -1,6 +1,8 @@
 package com.project.phoneshop.service;
 
-import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.domain.Page;
 
 import com.project.phoneshop.dto.BrandDTO;
 import com.project.phoneshop.model.Brand;
@@ -15,5 +17,9 @@ public interface BrandService {
 
 	void delete(Long id);
 
-	List<Brand> getBrands();
+	//List<Brand> getBrands();
+	
+	//List<Brand> getBrands(Map<String, String> params);
+	
+	Page<Brand> getBrands(Map<String, String> params);
 }

@@ -19,7 +19,7 @@ import com.project.phoneshop.service.ReportingService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/reports")
+@RequestMapping("api/v1/reports")
 @RequiredArgsConstructor
 public class ReportingController {
 	private final ReportingService reportingService;

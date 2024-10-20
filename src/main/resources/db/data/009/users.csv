@@ -1,0 +1,3 @@
+id,firstName,lastName,username,password,is_account_non_expired,is_account_non_locked,is_credentials_non_expired,is_enabled
+1,dara,mann,dara,$2a$10$VkNsisxbawfGqBlYlmdpRe9.7O2AxGbKvpEFY9IexRLCePjYsrFzG,true,true,true,true
+2,thida,van,thida,$2a$10$VkNsisxbawfGqBlYlmdpRe9.7O2AxGbKvpEFY9IexRLCePjYsrFzG,true,true,true,true

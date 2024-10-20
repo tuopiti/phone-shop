@@ -2,10 +2,9 @@ package com.project.phoneshop.controller;
 
 import java.util.Map;
 
-import javax.annotation.security.RolesAllowed;
-
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/models")
+@RequestMapping("api/v1/models")
 public class ModelController {
 	private final ModelService modelService;
 	private final ModelEntityMapper modelMapper;
@@ -53,8 +52,8 @@ public class ModelController {
 		return ResponseEntity.ok(ModelEntityMapper.INSTANCE.toDTO(model));
 	}
 	
-	//@PreAuthorize("hasRole('ROLE_SALE')")
-	@RolesAllowed("ROLE_SALE")
+	@PreAuthorize("hasAnyRole('ROLE_SALE','ROLE_ADMIN')")
+	//@RolesAllowed("ROLE_SALE")
 	@GetMapping
 	public ResponseEntity<?> getModelList(@RequestParam Map<String, String> params){
 		Page<Model> page = modelService.getModels(params);

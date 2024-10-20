@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: 001-create-table-users
+    author: tuopiti36@gmail.com
+    changes:
+    - createTable:
+        tableName: users
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: users_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: firstName
+            type: VARCHAR(255)
+        - column:
+            name: lastName
+            type: VARCHAR(255)
+        - column:
+            name: username
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)        
+        - column:
+            name: is_account_non_expired
+            type: BOOLEAN
+        - column:
+            name: is_account_non_locked
+            type: BOOLEAN
+        - column:
+            name: is_credentials_non_expired
+            type: BOOLEAN
+        - column:
+            name: is_enabled
+            type: BOOLEAN
+        
+        

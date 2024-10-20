@@ -41,7 +41,7 @@ public class SecurityConfig{
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeHttpRequests()
-			.antMatchers("/","/index","/home","css/**","js/**","/swagger-ui/").permitAll()
+			.antMatchers("/","/index","/home","css/**","js/**","/swagger-ui/","/swagger-ui/**", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html").permitAll()
 			//.antMatchers("/models").hasRole("SALE")
 			//.antMatchers(HttpMethod.POST, "/brands").hasAuthority(PermissionEnum.BRAND_WRITE.getDescription())
 			//.antMatchers(HttpMethod.GET, "/brands").hasAuthority(PermissionEnum.BRAND_READ.getDescription())

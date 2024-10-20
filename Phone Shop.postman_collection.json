@@ -1,0 +1,860 @@
+{
+	"info": {
+		"_postman_id": "6e075015-17c7-4d55-9dda-33d6a3140885",
+		"name": "Phone Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22826674"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"thida\",\r\n    \"password\" : \"mypassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "Create Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/brands",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Apples\",\r\n    \"active\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/brands/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Brand By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/brands/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/brands",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/brands/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Brand Filter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/brands?name=p&id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "p"
+								},
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Page Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/brands?_page=1&_limit=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							],
+							"query": [
+								{
+									"key": "_page",
+									"value": "1"
+								},
+								{
+									"key": "_limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Create Model",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Iphone 16\",\r\n    \"brandId\": 1,\r\n    \"yearMade\": 2024\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/models",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Model By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/models/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"models",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Page Model",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/models?_page=1&_limit=2&brandId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"models"
+							],
+							"query": [
+								{
+									"key": "_page",
+									"value": "1"
+								},
+								{
+									"key": "_limit",
+									"value": "2"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": {\r\n        \"modelId\" : 2,\r\n        \"colorId\" : 1,\r\n        \"name\" : \"Iphone 16\"\r\n    },\r\n    \r\n    \"importDetail\": {\r\n        \"importUnit\": 20,\r\n        \"pricePerUnit\": 1200,\r\n        \"dateImport\": \"2024-10-19\"\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/admin/Desktop/products_to_import.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/uploadProducts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"uploadProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "Create Color",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Black\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/color",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Color By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/color/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"color",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sell",
+			"item": [
+				{
+					"name": "Set Sell Price",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"salePrice\": 1300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/setPrice/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"setPrice",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sell Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\" : [\r\n        {\r\n        \"productId\": 1,\r\n        \"unit\" : 2\r\n        },\r\n        {\r\n        \"productId\": 1,\r\n        \"unit\" : 2\r\n        }\r\n    ],\r\n    \"soldDate\" : \"2024-10-19T00:00\",\r\n    \"status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/sells",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sells"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sell Cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/sells/1/cancel",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sells",
+								"1",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporting",
+			"item": [
+				{
+					"name": "Sale Daily Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/dailyProduct/2024-10-19",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"dailyProduct",
+								"2024-10-19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sale Daily Product V2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/dailyProduct/v2/2024-10-19",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"dailyProduct",
+								"v2",
+								"2024-10-19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sale Product Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/product/2023-06-28/2024-10-19",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"product",
+								"2023-06-28",
+								"2024-10-19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Expense Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0aGlkYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJicmFuZDp3cml0ZSJ9LHsiYXV0aG9yaXR5IjoiYnJhbmQ6cmVhZCJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9XSwiaWF0IjoxNzI4ODg0MzgyLCJleHAiOjE3MzE1MTcyMDAsImlzcyI6InBob25lcGhvbmUuY29tIn0.AY79afuQz5IMwHtoP-Rqv-mjtDBqWbqIXgOqcDuWjr3cGQ72kpud-C9tZQWlLD4W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/reports/expense/2024-10-19/2024-10-20",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"expense",
+								"2024-10-19",
+								"2024-10-20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

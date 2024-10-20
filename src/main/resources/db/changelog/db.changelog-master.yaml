@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001-create-table-users.yaml
+  - include:
+      file: db/changelog/002-create-table-roles.yaml
+  - include:
+      file: db/changelog/003-create-table-permissions.yaml
+  - include:
+      file: db/changelog/004-create-table-users-roles.yaml
+  - include:
+      file: db/changelog/005-create-table-roles-permissions.yaml
+  - include:
+      file: db/changelog/006-insert-roles.yaml
+  - include:
+      file: db/changelog/007-insert-permissions.yaml
+  - include:
+      file: db/changelog/008-insert-role-permissions.yaml
+  - include:
+      file: db/changelog/009-insert-users.yaml
+  - include:
+      file: db/changelog/010-insert-users-roles.yaml
+      
+  
